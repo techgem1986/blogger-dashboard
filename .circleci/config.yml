@@ -13,8 +13,21 @@ jobs:
       - checkout
       - node/install:
           node-version: '16.13'
-      - run: npm install
-      - run: npm run build
+      - run:
+          name: Installing Ract JS Libraries
+          command: npm install
+      - run:
+          name: Running Webpack
+          command: npm run build
+      - aws-s3/sync:
+          arguments: |
+            --acl public-read \
+            --cache-control "max-age=86400"
+          from: dist
+          to: 's3://techgem1986/dist'
+      - aws-s3/copy:
+          from: index.html
+          to: 's3://techgem1986'
 workflows:
   build-upload-s3:
     jobs:
