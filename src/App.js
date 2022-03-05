@@ -1,7 +1,7 @@
 function App() {
   return (
     <div>
-      Learn React Using Typescript
+      Welcome to React JS Using Typescript
     </div>
   );
 }
