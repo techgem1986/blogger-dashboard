@@ -26,7 +26,7 @@ jobs:
           from: index.html
           to: 's3://techgem1986'
       - aws-s3/sync:
-          from: /dist
+          from: dist
           to: 's3://techgem1986/dist'
 workflows:
   build-upload-s3:
