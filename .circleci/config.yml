@@ -23,11 +23,11 @@ jobs:
           name: Listing Directories
           command: ls -lhrt
       - aws-s3/copy:
-          from: index.html
+          from: build/index.html
           to: 's3://techgem1986'
       - aws-s3/sync:
-          from: dist
-          to: 's3://techgem1986/dist'
+          from: build/static
+          to: 's3://techgem1986/static'
 workflows:
   build-upload-s3:
     jobs:
