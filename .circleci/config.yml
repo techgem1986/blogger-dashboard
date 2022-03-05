@@ -31,7 +31,9 @@ jobs:
 workflows:
   build-upload-s3:
     jobs:
-      - build-and-upload
+      - build-and-upload:
+          context:
+            - AWS
 #          context:
 #            - SonarCloud
 #            - DockerHub
