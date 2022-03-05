@@ -13,7 +13,7 @@ jobs:
       - checkout
       - node/install:
           node-version: '16.13'
-      - run: build
+      - run: npm run build
 workflows:
   build-upload-s3:
     jobs:
