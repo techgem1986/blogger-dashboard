@@ -23,8 +23,8 @@ jobs:
           from: public/index.html
           to: 's3://techgem1986'
       - aws-s3/sync:
-          from: dist
-          to: 's3://techgem1986/dist'
+          from: public/static
+          to: 's3://techgem1986/static'
 workflows:
   build-and-upload-to-S3:
     jobs:
