@@ -18,13 +18,13 @@ jobs:
           command: npm install
       - run:
           name: Webpack
-          command: npm run build
+          command: npm run webpack
       - aws-s3/copy:
-          from: build/index.html
+          from: public/index.html
           to: 's3://techgem1986'
       - aws-s3/sync:
-          from: build/static
-          to: 's3://techgem1986/static'
+          from: dist
+          to: 's3://techgem1986/dist'
 workflows:
   build-and-upload-to-S3:
     jobs:
